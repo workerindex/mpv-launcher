@@ -13,11 +13,11 @@ before_build:
   - ps: nuget restore
 
 artifacts:
-  - path: x64\Release\mpv-launcher.exe
-    name: mpv-launcher.exe
+  - path: x64\Release\sudo-mpv-launcher.exe
+    name: sudo-mpv-launcher.exe
 
 deploy:
-  release: mpv-launcher-v$(appveyor_build_version)
+  release: sudo-mpv-launcher-v$(appveyor_build_version)
   provider: GitHub
   auth_token:
     secure: X4NgNZcn4mzGoEKUZLK6VJxcn3m+A9SKOpVa2opdLRfwKzXx6AfKTWMr2ocsMXuF

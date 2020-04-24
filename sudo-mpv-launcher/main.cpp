@@ -207,11 +207,11 @@ int registerProtocol() {
 	LSTATUS status;
 	registry_key key;
 
-	const WCHAR regVAL1[] = LR"(URL:mpv-launcher Protocol)";
+	const WCHAR regVAL1[] = LR"(URL:sudo-mpv-launcher Protocol)";
 
 	status = ::RegCreateKeyExW(
 		HKEY_CLASSES_ROOT,
-		LR"(mpv-launcher)",
+		LR"(sudo-mpv-launcher)",
 		0,
 		nullptr,
 		0,
@@ -260,7 +260,7 @@ int registerProtocol() {
 
 	status = ::RegCreateKeyExW(
 		HKEY_CLASSES_ROOT,
-		LR"(mpv-launcher\shell)",
+		LR"(sudo-mpv-launcher\shell)",
 		0,
 		nullptr,
 		0,
@@ -278,7 +278,7 @@ int registerProtocol() {
 
 	status = ::RegCreateKeyExW(
 		HKEY_CLASSES_ROOT,
-		LR"(mpv-launcher\shell\open)",
+		LR"(sudo-mpv-launcher\shell\open)",
 		0,
 		nullptr,
 		0,
@@ -296,7 +296,7 @@ int registerProtocol() {
 
 	status = ::RegCreateKeyExW(
 		HKEY_CLASSES_ROOT,
-		LR"(mpv-launcher\shell\open\command)",
+		LR"(sudo-mpv-launcher\shell\open\command)",
 		0,
 		nullptr,
 		0,
@@ -326,7 +326,7 @@ int registerProtocol() {
 		ErrorExit(L"RegSetValueExW", status);
 	}
 
-	::MessageBoxW(NULL, L"Success!", L"mpv-launcher", MB_ICONINFORMATION | MB_OK);
+	::MessageBoxW(NULL, L"Success!", L"sudo-mpv-launcher", MB_ICONINFORMATION | MB_OK);
 
 	return 0;
 }
@@ -339,7 +339,7 @@ int launchMPV(json args) {
 
 		DWORD error = GetLastError();
 		if (error == ERROR_FILE_NOT_FOUND) {
-			::MessageBoxW(NULL, L"mpv.exe is not in your system PATH environment variable. Please add it and try again!", L"mpv-launcher", MB_ICONERROR | MB_OK);
+			::MessageBoxW(NULL, L"mpv.exe is not in your system PATH environment variable. Please add it and try again!", L"sudo-mpv-launcher", MB_ICONERROR | MB_OK);
 		}
 
 		ErrorExit(L"SearchPathW");
@@ -395,7 +395,7 @@ int wmain(int argc, wchar_t* argv[], wchar_t* envp[])
 
 	if (argc == 1) {
 
-		if (::MessageBoxW(NULL, L"Register protocol handler mpv-launcher://?", L"mpv-launcher", MB_ICONQUESTION | MB_YESNO) == IDYES)
+		if (::MessageBoxW(NULL, L"Register protocol handler sudo-mpv-launcher://?", L"sudo-mpv-launcher", MB_ICONQUESTION | MB_YESNO) == IDYES)
 		{
 			return registerProtocol();
 		}

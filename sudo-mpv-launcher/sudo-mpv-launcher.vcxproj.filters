@@ -5,9 +5,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PropertySheet.props" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="readme.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="cppcodec">
@@ -96,5 +94,9 @@
     <ClInclude Include="cppcodec\base32_default_crockford.hpp">
       <Filter>cppcodec</Filter>
     </ClInclude>
+    <ClInclude Include="json.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="README.md" />
   </ItemGroup>
 </Project>
