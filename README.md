@@ -1,6 +1,8 @@
 # mpv-launcher
 
-Provides a `mpv-launcher://` protocol handler for Windows. Launches mpv from browsers with arbitrary arguments.
+Provides a `mpv-launcher://` protocol handler for Windows. Launches mpv from browsers with **arbitrary arguments**.
+
+**WARNING: Since it allows arbitrary arguments, NO ONE SHOULD USE IT WITHOUT KNOWING WHAT IT MEANS AND WHAT HE/SHE IS DOING!**
 
 # Protocol Scheme Encoding
 
